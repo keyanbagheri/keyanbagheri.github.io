@@ -1,0 +1,272 @@
+body{
+  /*font-family: 'Poiret One', cursive;*/
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  margin-top: 0;
+  color: black;
+  background-color: white;
+}
+
+header {
+  background-image: url(../images/paper.jpg);
+  background-repeat: true;
+  margin: none;
+  text-align: center;
+}
+
+.headshot {
+  height: 180px;
+  margin: 1em;
+  -webkit-border-top-left-radius: 100px;
+  -moz-border-top-left-radius: 100px;
+  border-top-left-radius: 100px;
+  -webkit-border-bottom-right-radius: 100px;
+  -moz-border-bottom-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+}
+
+#headshot-container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+}
+
+#right-header {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1em;
+}
+
+.beardie {
+  height: 30px;
+  margin: -5px 10px;
+  transition: all .5s;
+}
+
+#name {
+  margin: 10px;
+  font-weight: 400;
+}
+
+#title {
+  margin: 20px;
+  color: RGBA(0, 110, 153, 1);
+  font-weight: 400;
+}
+
+.icons-list-1 {
+/*  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));*/
+  margin: 0 10px 20px 0;
+  text-align: center;
+  height: 50px;
+/*  margin: none;
+  width: 37%;
+  float: center;
+  vertical-align: top;
+  display: inline-block;
+  height: 2.5em;
+  top: 0;
+  position: relative;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;*/
+}
+
+#sticker {
+/*  background-image: url(../images/paper.jpg);
+  background-repeat: true;*/
+  z-index: 1;
+  font-family: 'Lato', sans-serif;
+  /*background-color: RGBA(249, 245, 248, 1);*/
+  width: 100%;
+  height: 75px;
+  position: absolute;
+  text-align: center;
+  margin: none;
+  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
+  transition: all .5s;
+}
+
+h1 {
+  color: RGBA(0, 147, 204, 1);
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 55px;
+}
+
+h2 {
+  color: RGBA(0, 147, 204, 1);
+}
+
+h3 {
+  color: RGBA(0, 147, 204, 1);
+}
+
+h4 {
+  color: RGBA(0, 147, 204, 1);
+}
+
+footer {
+  background-image: url(../images/paper.jpg);
+  background-repeat: true;
+  font-family: 'Julius Sans One', sans-serif;
+  background-color: RGBA(249, 245, 248, 1);
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  text-align: center;
+  margin: none none;
+  /*background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1))*/
+}
+
+.icons-list-2 {
+  margin-top: 50px;
+  display: inline-block;
+}
+
+#contact-title {
+  width: 100%;
+  height: 75px;
+  text-align: center;
+  margin: none;
+  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
+}
+
+#contact-title h2 {
+  margin-top: 0;
+  padding: 20px;
+  display: inline-block;
+  transition: all .5s;
+  font-weight: 300;
+}
+
+#contact-title h2:hover {
+  margin-top: -12px;
+  font-size: 3em;
+  color: RGBA(0, 110, 153, 1);
+}
+
+.icon {
+  margin-top: 20px;
+  width: 60px;
+  top: 0;
+  position: relative;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+img {
+  height: 50px;
+}
+
+.iconic {
+  display: inline;
+  margin: 0;
+  padding: 0 .5em;
+  font-size: 50px;
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+}
+
+.iconic a {
+  text-decoration: none;
+  color: RGBA(56, 55, 54, 1);
+}
+
+.iconic a:hover{
+  color: RGBA(0, 147, 204, 1);
+}
+
+.nav-button-container {
+  display: inline-block;
+  transition: all .5s;
+}
+
+.nav-button a{
+  text-decoration: none;
+  color: RGBA(0, 147, 204, 1);
+}
+
+.nav-button {
+  margin-top: 0;
+  padding: 20px;
+  font-weight: 300;
+  display: inline-block;
+  transition: all .5s;
+}
+
+.nav-button:hover {
+  margin-top: -12px;
+  font-size: 3em;
+  cursor: pointer;
+  color: RGBA(0, 110, 153, 1);
+}
+
+.tech-skills {
+  width: 49.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.skills-rate {
+  width: 100%;
+}
+
+.skill-bar {
+  background-image: linear-gradient( to right, RGBA(0, 110, 153, 1), RGBA(64, 171, 212, .5));
+  min-height: .6em;
+  margin: 0 .5em;
+}
+
+.other-skills {
+  width: 49.5%;
+  display: inline-block;
+}
+
+.sound-cloud {
+  vertical-align: bottom
+}
+/*Start Responsive Design*/
+
+@media (max-width: 600px){
+  h1 {
+    font-size: 30px;
+  }
+
+  ul {
+    padding: 5px;
+  }
+
+  p {
+    text-align: left;
+  }
+
+  nav li {
+    padding-left: 15PX;
+  }
+
+  #headshot {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+
+  #nav-links li {
+    display: inline-block;
+  }
+
+  .project-list > div {
+    display: block;
+    width: auto;
+  }
+
+  .about-me > article {
+    display: block;
+    width: auto;
+  }
+
+}
