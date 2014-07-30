@@ -1,3 +1,26 @@
+/*font styles*/
+
+/*font-family: 'Orbitron', sans-serif;*/
+/*font-family: 'Cinzel', serif;*/
+/*font-family: 'Cabin Sketch', cursive;*/
+/*font-family: 'Reenie Beanie', cursive;*/
+/*font-family: 'Sigmar One', cursive;*/
+
+/*font-family: 'Julius Sans One', sans-serif;*/
+/*font-family: 'Poiret One', cursive;*/
+
+/*good for larger text*/
+/*font-family: 'Allerta Stencil', sans-serif;*/
+
+/*font-family: 'Lato', sans-serif;*/
+
+/*colors*/
+/*main RGBA(0, 147, 204, 1)*/
+/*main RGBA(0, 110, 153, 1)*/
+/*main RGBA(64, 171, 212, 1)*/
+/*main RGBA(0, 55, 76, 1)*/
+/*main RGBA(23, 62, 76, 1)*/
+
 body{
   /*font-family: 'Poiret One', cursive;*/
   font-family: 'Lato', sans-serif;
@@ -43,7 +66,6 @@ header {
 .beardie {
   height: 30px;
   margin: -5px 10px;
-  transition: all .5s;
 }
 
 #name {
@@ -58,7 +80,7 @@ header {
 }
 
 .icons-list-1 {
-/*  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));*/
+  /*  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));*/
   margin: 0 10px 20px 0;
   text-align: center;
   height: 50px;
@@ -77,17 +99,38 @@ header {
 
 #sticker {
 /*  background-image: url(../images/paper.jpg);
-  background-repeat: true;*/
-  z-index: 1;
-  font-family: 'Lato', sans-serif;
-  /*background-color: RGBA(249, 245, 248, 1);*/
+background-repeat: true;*/
+z-index: 1;
+font-family: 'Lato', sans-serif;
+/*background-color: RGBA(249, 245, 248, 1);*/
+width: 100%;
+height: 75px;
+position: absolute;
+text-align: center;
+margin: none;
+background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
+transition: all .5s;
+}
+
+.bio {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-list img {
+  height: 100%;
   width: 100%;
-  height: 75px;
-  position: absolute;
-  text-align: center;
-  margin: none;
-  background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
-  transition: all .5s;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+}
+
+.project-list div {
+  vertical-align: top;
+  display: inline-block;
+  padding: 0 3em 3em 3em;
+  width: 40%; 
 }
 
 h1 {
@@ -135,30 +178,6 @@ footer {
   background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
 }
 
-#contact-title h2 {
-  margin-top: 0;
-  padding: 20px;
-  display: inline-block;
-  transition: all .5s;
-  font-weight: 300;
-}
-
-#contact-title h2:hover {
-  margin-top: -12px;
-  font-size: 3em;
-  color: RGBA(0, 110, 153, 1);
-}
-
-.icon {
-  margin-top: 20px;
-  width: 60px;
-  top: 0;
-  position: relative;
-  -moz-transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
 img {
   height: 50px;
 }
@@ -182,17 +201,13 @@ img {
   color: RGBA(0, 147, 204, 1);
 }
 
-.nav-button-container {
-  display: inline-block;
-  transition: all .5s;
-}
-
 .nav-button a{
   text-decoration: none;
   color: RGBA(0, 147, 204, 1);
 }
 
 .nav-button {
+  display: inline-block;
   margin-top: 0;
   padding: 20px;
   font-weight: 300;
@@ -255,8 +270,27 @@ img {
     margin-bottom: 0;
   }
 
-  #nav-links li {
+  .nav-button {
     display: inline-block;
+    margin-top: 20px;
+    padding: .3em;
+    font-weight: 300;
+    font-size: .8em;
+  }
+
+  .nav-button:hover {
+    margin-top: -12px;
+    font-size: 1.4em;
+    cursor: pointer;
+    color: RGBA(0, 110, 153, 1);
+  }
+
+  .iconic {
+    padding: 0 .25em;
+    font-size: 40px;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
   }
 
   .project-list > div {

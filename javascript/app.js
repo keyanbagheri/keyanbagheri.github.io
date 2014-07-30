@@ -22,11 +22,11 @@ $(document).ready(function(){
     }, 750);
   });
     
-  // $("#nav-projects").click(function() {
-  //   $('html, body').animate({
-  //     scrollTop: $("#footer").offset().top - 75
-  //   }, 750);
-  // });
+  $("#nav-projects").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#projects-title").offset().top - 75
+    }, 750);
+  });
   
   // travel to footer
   $("#nav-footer").click(function() {
@@ -45,7 +45,7 @@ $(document).ready(function(){
       console.log(imagePos + "!");
       console.log(topOfWindow);
       if ((imagePos < topOfWindow+550)) {
-        $(this).show();
+        setTimeout(function(){ $('.skill-bar').show(); }, 250);
         $(this).addClass("stretchRight");
       }
     });

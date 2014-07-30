@@ -133,9 +133,6 @@ stretchRight
   animation-name: stretchRight;
   -webkit-animation-name: stretchRight; 
 
-  animation-delay: .1s;
-  -webkit-animation-delay: .1s;
-
   animation-duration: 3s; 
   -webkit-animation-duration: 3s;
 
