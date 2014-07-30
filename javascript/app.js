@@ -4,34 +4,34 @@ $(document).ready(function(){
   // travel to header
   $("#nav-header").click(function() {
     $('html, body').animate({
-      scrollTop: $("header").offset().top - 75
+      scrollTop: $("header").offset().top - 90
     }, 750);
   });
 
   // travel to about me
   $("#nav-about").click(function() {
     $('html, body').animate({
-      scrollTop: $("#about-me-title").offset().top - 75
+      scrollTop: $("#about-me-title").offset().top - 90
     }, 750);
   });
 
   // travel to skill list
     $("#nav-skills").click(function() {
     $('html, body').animate({
-      scrollTop: $("#skill-list").offset().top - 75
+      scrollTop: $("#skill-list").offset().top - 90
     }, 750);
   });
     
   $("#nav-projects").click(function() {
     $('html, body').animate({
-      scrollTop: $("#projects-title").offset().top - 75
+      scrollTop: $("#projects-title").offset().top - 90
     }, 750);
   });
   
   // travel to footer
   $("#nav-footer").click(function() {
     $('html, body').animate({
-      scrollTop: $("footer").offset().top - 75
+      scrollTop: $("footer").offset().top - 90
     }, 750);
   });
 
