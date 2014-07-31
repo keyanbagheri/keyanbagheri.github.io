@@ -111,6 +111,9 @@ text-align: center;
 margin: none;
 background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
 transition: all .5s;
+-webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
 }
 
 .bio {
@@ -172,6 +175,10 @@ h4 {
   color: RGBA(0, 147, 204, 1);
 }
 
+h5 {
+  color: RGBA(0, 147, 204, 1);
+}
+
 footer {
   background-image: url(../images/paper.jpg);
   background-repeat: true;
@@ -182,6 +189,7 @@ footer {
   position: absolute;
   text-align: center;
   margin: none none;
+  z-index: -1;
   /*background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1))*/
 }
 
@@ -190,12 +198,19 @@ footer {
   display: inline-block;
 }
 
+#about-me-title {
+  margin-left: 3.5em;
+}
+
 #contact-title {
   width: 100%;
   height: 75px;
   text-align: center;
   margin: none;
   background-image: linear-gradient( to right, RGBA(249, 245, 248, 1), RGBA(247, 242, 246, 1));
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.3);
 }
 
 img {
@@ -242,10 +257,14 @@ img {
   color: RGBA(0, 110, 153, 1);
 }
 
-.tech-skills {
-  width: 49.5%;
+.skillz {
+  width: 40%;
+  margin: 0 3.5em;
   display: inline-block;
   vertical-align: top;
+}
+
+.tech-skills {
 }
 
 .skills-rate {
@@ -256,11 +275,6 @@ img {
   background-image: linear-gradient( to right, RGBA(0, 110, 153, 1), RGBA(64, 171, 212, .5));
   min-height: .6em;
   margin: 0 .5em;
-}
-
-.other-skills {
-  width: 49.5%;
-  display: inline-block;
 }
 
 .sound-cloud {
