@@ -11,14 +11,14 @@ $(document).ready(function(){
   // travel to about me
   $("#nav-about").click(function() {
     $('html, body').animate({
-      scrollTop: $("#about-me-title").offset().top - 90
+      scrollTop: $("#about-me-title").offset().top - 106
     }, 750);
   });
 
   // travel to skill list
     $("#nav-skills").click(function() {
     $('html, body').animate({
-      scrollTop: $("#skill-list").offset().top - 90
+      scrollTop: $("#skill-list").offset().top - 170
     }, 750);
   });
     
@@ -44,8 +44,8 @@ $(document).ready(function(){
     var topOfWindow = $(window).scrollTop();
       console.log(imagePos + "!");
       console.log(topOfWindow);
-      if ((imagePos < topOfWindow+550)) {
-        setTimeout(function(){ $('.skill-bar').show(); }, 250);
+      if ((imagePos < topOfWindow+590)) {
+        setTimeout(function(){ $('.skill-bar').show(); }, 100);
         $(this).addClass("stretchRight");
       }
     });
