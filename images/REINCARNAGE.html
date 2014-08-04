@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:3000/level1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>REINCARNAGE</title>
+  <link data-turbolinks-track="true" href="http://localhost:3000/assets/games.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/scores.css?body=1" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="http://localhost:3000/assets/application.css?body=1" media="all" rel="stylesheet">
+  <script data-turbolinks-track="true" src="./REINCARNAGE_files/jquery.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/jquery_ujs.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/turbolinks.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/phaser.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/homeScreen.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/jquery-1.11.1.min.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/level1.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/level2.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/level3.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/level4.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/phaser.min.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/scores.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/spritesAndImages.js"></script>
+<script data-turbolinks-track="true" src="./REINCARNAGE_files/application.js"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="WPqAAQugJx67Lw8Oon3eeFmeN5dtDxi8p/zOF5xIKoc=" name="csrf-token">
+<script type="text/javascript" charset="UTF-8" src="./REINCARNAGE_files/l.js"></script></head>
+<body style="overflow: hidden;">
+<br>
+<h2>Make your way into the spider's web (Controls: Left, Right, Spacebar Jump)</h2>
+
+<div class="game_container">
+    <script type="text/javascript">
+
+      var game = new Phaser.Game(1024, 768, Phaser.CANVAS, '', { preload: preload, create: create, update: update, render: render });
+
+      function preload(){
+
+        beginningTimeSeconds = game.time.time / 1000
+        beginningTimeMS = game.time.time
+
+        // sounds for level 1
+        game.load.audio('eep', '/sounds/beetle eep.mp3');
+        game.load.audio('grunt', '/sounds/beetle grunt.mp3');
+        game.load.audio('heep', '/sounds/beetle heep.mp3');
+        game.load.audio('umpf', '/sounds/beetle umpf.mp3');
+        game.load.audio('jump1', '/sounds/jump1.mp3');
+        game.load.audio('jump2', '/sounds/jump2.mp3');
+        game.load.audio('jump3', '/sounds/jump3.mp3');
+        game.load.audio('jump4', '/sounds/jump4.mp3');
+        game.load.audio('jump5', '/sounds/jump5.mp3');
+        game.load.audio('whoosh1', '/sounds/whoosh1.mp3');
+        game.load.audio('whoosh2', '/sounds/whoosh2.mp3');
+        game.load.audio('whoosh3', '/sounds/whoosh3.mp3');
+        game.load.audio('whoosh4', '/sounds/whoosh4.mp3');
+        game.load.audio('whoosh5', '/sounds/whoosh5.mp3');
+        game.load.audio('whoosh6', '/sounds/whoosh6.mp3');
+        game.load.audio('whoosh7', '/sounds/whoosh7.mp3');
+        game.load.audio('whoosh8', '/sounds/whoosh8.mp3');
+        game.load.audio('whoosh9', '/sounds/whoosh9.mp3');
+        game.load.audio('whoosh10', '/sounds/whoosh10.mp3');
+        game.load.audio('yipee', '/sounds/yipee.mp3');
+
+
+        // todo: maybe load with offset *******************
+
+        // images for level 1
+
+        // invisible platforms
+        game.load.image('invisible_line', '/images/blank_line.png');
+        game.load.image('purp_line', '/images/purp_line.png');
+
+        // background
+        game.load.image('background', '/images/background.png');
+        game.load.image('levelOneBackground', '/images/level1background-01.png');
+        game.load.image('cloud3', '/images/cloud_3.png');
+        game.load.image('cloud4', '/images/cloud_4.png');
+        // interactables
+        game.load.image('branch1', '/images/branch 1.png');
+        game.load.image('branch2', '/images/branch 2.png');
+        game.load.image('branch3', '/images/branch 3.png');
+        game.load.image('branch4', '/images/branch 4.png');
+        game.load.image('acorn1', '/images/acorn_1.png');
+        game.load.image('acorn2', '/images/acorn_2.png');
+        game.load.image('acorn3', '/images/acorn_3.png');
+        game.load.image('acorn4', '/images/acorn_4.png');
+        game.load.image('acorn5', '/images/acorn_5.png');
+        game.load.image('acorn6', '/images/acorn_6.png');
+        // animals
+        game.load.image('spider', '/images/spider_bigger_face.png');
+        game.load.spritesheet('fly', '/images/Tiny_flies_sheet.png', 19, 18);
+        game.load.spritesheet('beetle', '/images/bug_sprite_sheet1.png', 95.2, 124);
+      }
+
+      var platforms;
+        var acorns;
+        var acorn2;
+        var spider;
+        var jump;
+        var yipee;
+        var yipped;
+        var acornHit;
+        // var timer;
+        // var timer2;
+        var total = 0;
+        var total2 = 0;
+        var beginningTimeSeconds;
+
+
+      function create(){
+
+        jump = game.add.audio('jump1');
+        yipee = game.add.audio('yipee');
+
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        // background image and scaled
+        background = game.add.image(0, -500, 'background');
+        background.scale.x = game.rnd.realInRange(4, 4);
+        background.scale.y = game.rnd.realInRange(4, 4);
+
+        createCloud = function(x, y, xVelocity, image)
+        {
+            cloud = game.add.sprite(x, y, image);
+            game.physics.arcade.enable(cloud);
+            cloud.enableBody = true;
+            cloud.body.immovable = true;
+            cloud.body.collideWorldBounds = true;
+            cloud.body.velocity.x = xVelocity;
+            cloud.body.bounce.setTo(1, 1);
+        }
+
+        createCloud(755, 385, -3, 'cloud3');
+        createCloud(35, 100, 5, 'cloud4');
+
+        game.add.image(0, 0, 'levelOneBackground');
+
+        platforms = game.add.group();
+
+        platforms.enableBody = true;
+
+        spider = game.add.sprite(90, -30, 'spider');
+        game.physics.arcade.enable(spider);
+        spider.enableBody = true;
+        spider.scale.x = game.rnd.realInRange(.55, .55);
+        spider.scale.y = game.rnd.realInRange(.55, .55);
+        spider.body.immovable = true;
+
+        cursors = game.input.keyboard.createCursorKeys();
+
+        
+        function createBranch(x, y, image, size) {
+            branch = game.add.image(x, y, image);
+            branch.scale.x = game.rnd.realInRange(size, size);
+            branch.scale.y = game.rnd.realInRange(size, size);
+        }
+
+        function createObject(x, y, image, size) {
+            object = platforms.create(x, y, image);
+            object.scale.x = game.rnd.realInRange(size, size);
+            object.body.immovable = true;      
+        }
+
+
+        // left side
+        createBranch(0, 108, 'branch1', 2);
+        createObject(0, 120, 'invisible_line', 6.5);
+
+        // right side
+        createBranch(410, 270, 'branch2', 2);
+        createObject(415, 275, 'invisible_line', 6.2);
+
+        // left side
+        createBranch(-50, 420, 'branch3', 2);
+        createObject(-50, 440, 'invisible_line', 7.30);
+
+        // right side
+        createBranch(410, 570, 'branch4', 2);
+        createObject(455, 595, 'invisible_line', 5.8);
+
+        // ground
+        createBranch(0, 746, 'branch2', 3);
+        createObject(0, 755, 'invisible_line', 11);
+
+        // finish line
+        finishLine = game.add.sprite(250, 0, "invisible_line")
+        finishLine.scale.x = game.rnd.realInRange(.01, .01);
+        finishLine.scale.y = game.rnd.realInRange(120, 120);
+        game.physics.arcade.enable(finishLine);
+        
+        acorns = game.add.group();
+        acorns.enableBody = true;
+        // game.physics.arcade.enable(acorns);
+
+        function createAcorn(x, y, size, xVelocity){
+            var acorn_array = ["acorn1", "acorn2", "acorn3", "acorn4", "acorn5", "acorn6"]
+            random_acorn = acorn_array[Math.floor(acorn_array.length * Math.random())];
+            acorn = acorns.create(x, y, random_acorn);
+            game.physics.arcade.enable(acorn);
+            acorn.body.immovable = true;
+            acorn.scale.setTo(size, size);
+            acorn.body.velocity.x = xVelocity;
+            acorn.body.bounce.y = 0.1;
+        }
+
+        game.time.events.loop(Phaser.Timer.SECOND * 3, acornLaunch, this);
+        acornLaunch();
+        function acornLaunch() {
+            var whoosh_array = ["whoosh1", "whoosh2", "whoosh3", "whoosh4", "whoosh5", "whoosh6", "whoosh7", "whoosh8", "whoosh9", "whoosh10"]
+            var random_whoosh = function() {
+                whooshSound = whoosh_array[Math.floor(whoosh_array.length * Math.random())];
+                return whooshSound
+            }
+            // var random_whoosh2 = whoosh_array[Math.floor(whoosh_array.length * Math.random())];
+            // var random_whoosh3 = whoosh_array[Math.floor(whoosh_array.length * Math.random())];
+            // var random_whoosh4 = whoosh_array[Math.floor(whoosh_array.length * Math.random())];
+
+                // shoot right
+            createAcorn(-1500, 80, 1.2, 600);
+            whoosh1 = game.add.audio(random_whoosh());
+            setTimeout(function(){
+                whoosh1.play();
+            }, 2600);
+                // shoot left
+            createAcorn(2000, 230, 1.5, -600);
+            whoosh2 = game.add.audio(random_whoosh());
+            setTimeout(function(){
+                whoosh2.play();
+            }, 1800);
+                // shoot right
+            createAcorn(-500, 385, 1.5, 500);
+            whoosh3 = game.add.audio(random_whoosh());
+            setTimeout(function(){
+                whoosh3.play();
+            }, 1000);
+                // shoot left
+            createAcorn(1000, 530, 1.5, -500);
+            whoosh4 = game.add.audio(random_whoosh());
+            setTimeout(function(){
+                whoosh4.play();
+            }, 5);
+        }
+
+        createFly = function(x, y, size, direction)
+        {
+            fly = game.add.sprite(x, y, 'fly')
+            game.physics.arcade.enable(fly);
+            fly.scale.x = game.rnd.realInRange(size, size);
+            fly.scale.y = game.rnd.realInRange(size, size);
+            fly.animations.add('right', [0, 1], .5, true);
+            fly.animations.add('left', [2, 3], .35, true);
+            fly.animations.play(direction);
+        }
+
+        createFly(10, 20, 1.2, 'right')
+        createFly(55, 50, .8, 'left')
+
+        beetle = game.add.sprite(800, 690, 'beetle')
+        beetle.scale.x = game.rnd.realInRange(.45, .45);
+        beetle.scale.y = game.rnd.realInRange(.45, .45);
+        game.physics.arcade.enable(beetle);
+
+        beetle.body.bounce.y = 0.1;
+        beetle.body.gravity.y = 350;
+        beetle.body.collideWorldBounds = true;
+
+        beetle.animations.add('left', [0, 1], 5, true);
+        beetle.animations.add('right', [3, 4], 5, true);
+
+
+        beetle.body.collideWorldBounds = true;
+        acorn.body.collideWorldBounds = false;
+
+        cursors = game.input.keyboard.createCursorKeys();
+        spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        // //  Create our Timer
+        // timer = game.time.create(false);
+        // timer2 = game.time.create(false);
+
+        // //  Set a TimerEvent to occur after 2 seconds
+        // timer.loop(1000, updateCounter, this);
+        // timer2.loop(1, updateCounter2, this);
+
+        // //  Start the timer running - this is important!
+        // //  It won't start automatically, allowing you to hook it to button events and the like.
+        // timer.start();
+        // timer2.start();
+
+        acornHit = false
+        yipped = false
+
+      }
+
+
+
+      function update(){
+
+        game.physics.arcade.collide(beetle, platforms);
+        game.physics.arcade.collide(acorn, platforms);
+        // game.physics.arcade.collide(beetle, acorns);
+        game.physics.arcade.collide(platforms, platforms);
+        // game.physics.arcade.collide(beetle, spider);
+
+        game.physics.arcade.overlap(beetle, spider, winFunc, null, this);
+        var grunt_array = ["grunt", "heep", "eep", "grunt", "heep", "eep", "grunt", "umpf"]
+        random_grunt = grunt_array[Math.floor(grunt_array.length * Math.random())];
+        grunt = game.add.audio(random_grunt);
+
+        game.physics.arcade.collide(beetle, acorns, gruntFunc, null, this);
+        game.physics.arcade.overlap(beetle, finishLine, yipeeFunc, null, this);
+
+        function gruntFunc(beetle, acorn){
+            if (acornHit === false)
+            {
+            grunt.play();
+            acornHit = true
+            setTimeout(function(){
+                acornHit = false
+            }, 800);
+            }
+        }
+
+        function yipeeFunc(beetle, finishLine){
+            if (yipped === false)
+            {
+                yipee.play();
+                yipped = true
+            }
+        }
+
+
+    // push state document
+
+    // or a normal ajax request
+
+    // to drop the current page tag from the dom and get the new svg tag
+
+
+        function winFunc(beetle, spider){
+            // add functionality for bug to seem to go behind spider and hit hidden div
+            beetle.kill();
+            // timer.stop();
+            // timer2.stop();
+            finishTime = game.time.time - beginningTimeMS
+            sessionStorage.setItem("firstLevelTime", finishTime);
+            // insert timeout function
+            spider.body.velocity.x = 0
+            spider.body.velocity.y += 500
+            console.log('WINNER!');
+
+            // var levelChange = function() {
+            // window.location.replace("http://reincarnage.herokuapp.com/level2")};
+            var levelChange = function() {
+            window.location.replace("http://localhost:3000/level2")};
+
+          $('body').fadeOut(3000, function(){levelChange();});
+
+          // window.setTimeout(levelChange(), 4600);
+
+          // $('body').fadeOut(4000, levelChange());
+        
+
+            // setTimeout(function(){$('body').fadeOut(4000; levelChange();}, 2000);
+
+        }
+
+        beetle.body.velocity.x = 0;
+
+        if (cursors.left.isDown)
+        {
+            //  Move to the left
+            beetle.body.velocity.x = -180;
+
+            beetle.animations.play('left');
+        }
+        else if (cursors.right.isDown)
+        {
+            //  Move to the right
+            beetle.body.velocity.x = 180;
+
+            beetle.animations.play('right');
+        }
+        else
+        {
+            //  Stand still
+            beetle.animations.stop();
+
+            beetle.frame = 2;
+        }
+        
+        //  Allow the player to jump if they are touching the ground.
+        if (spaceKey.isDown && beetle.body.touching.down)
+        {
+            beetle.body.velocity.y = -350;
+            jump.play();
+        }
+
+
+
+      }
+
+    // function updateCounter() {
+
+    //     total++;
+
+    // }
+
+    // function updateCounter2() {
+
+    //     total2++;
+
+    // }
+
+
+
+      function render(){
+        // game.debug.text('Time until event: ' + timer.duration.toFixed(0), 800, 40);
+        game.debug.text('TIME: ' + ((game.time.time / 1000) - beginningTimeSeconds).toFixed(1) + 's', 850, 20);
+      }
+
+
+      </script>
+
+</div>
+
+
+<h3>Reincarnage Game:</h3>
+<p>Because you are what you eat, but sometimes you are what eats you</p>
+
+
+<canvas width="1024" height="768" style="display: block; touch-action: none; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></body></html>
