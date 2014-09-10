@@ -50,8 +50,8 @@ $(document).ready(function(){
       }
     });
   });
-
 });
+
 
 // $(document).ready( function() {
 //   $(".show").hide();
