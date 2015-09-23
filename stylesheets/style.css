@@ -435,3 +435,7 @@ box-shadow: 0px 4px 5px 0px rgba(50, 50, 50, 0.3);
     }
 
   }
+
+  .simple-link {
+    color: RGBA(0, 110, 153, 1);
+  }
