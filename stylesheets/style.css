@@ -125,7 +125,7 @@ transition: all .5s;
 }
 
 .computer-screen {
-  background-image: url('../images/MacbookPro.png');
+  /*background-image: url('../images/MacbookPro.png');*/
   background-size: contain;
   background-repeat: no-repeat;
   margin: 20px auto;
